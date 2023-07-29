@@ -1,5 +1,6 @@
-import { Task } from "../../task/types/Task"
-
+import { Task } from "../task/task"
+//@todo specific directory for contexts
+import { createContext } from "react"
 export type ColumnProps = {
   columnId: string
 }
@@ -17,3 +18,6 @@ export type BoardTaskOrderChanging = {
   newIndex: number,
   taskId: string
 }
+
+const boardData: Board[] = []
+export const columnContext = createContext(boardData)
