@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import TaskComponent from "../../task/components/TaskComponent";
+import TaskComponent from "../Task/TaskComponent";
 import { StrictModeDroppable } from "../../StrictModeDroppable";
-import { Board, ColumnProps } from "../../board/types/Board";
-import { columnContext } from "../../board/services/Board";
-import { Task } from "../../task/types/Task";
+import { Board, ColumnProps } from "@/types/board/board";
+import { columnContext } from "@/services/board/board";
+import { Task } from "@/types/task/task";
 
-export default function BoardColumn(props: BoardColumnProps): JSX.Element {
+export default function BoardColumn(props: ColumnProps): JSX.Element {
 
   const columnid = props.columnId;
   const context = useContext(columnContext);

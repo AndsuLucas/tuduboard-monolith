@@ -18,10 +18,7 @@ type NonNullableDropResult = {
 export const onDropingColumnTaskTrade = (dropResult: DropResult, boardState: Board[]) => {
     const { destination, source} = dropResult;
 
-    const hasDestination = (destination: any): destination is DraggableLocation =>
-      'droppableId' in destination
-
-    if (!hasDestination(destination)) {
+    if (!destination) {
       return boardState;
     }
 
@@ -60,7 +57,7 @@ const changeTaskOrderInSameColumn = (dropResult: NonNullableDropResult, boardSta
     taskId: draggableId
   }, destinationColumn);
 
-  let boardWithNewData: Board[] = structuredClone(boardState);
+  const boardWithNewData: Board[] = structuredClone(boardState);
   boardWithNewData[destinationColumnKeyIndex] = columnWithChangedTaskOrder;
 
   return boardWithNewData;
@@ -83,7 +80,7 @@ const changeTaskInDifferentColumns = (dropResult: NonNullableDropResult, boardSt
   const columnWithNewTask = taskAt(task, destination.index,  destinationColumn);
   const sourceColumnWithRemovedTask = removeAt(source.index, sourceColumn);
 
-  let boardWithNewData: Board[] = structuredClone(boardState);
+  const boardWithNewData: Board[] = structuredClone(boardState);
 
   boardWithNewData[destinationColumnKeyIndex] = columnWithNewTask;
   boardWithNewData[sourceColumnKeyIndex] = sourceColumnWithRemovedTask;

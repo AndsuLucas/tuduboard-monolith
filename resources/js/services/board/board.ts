@@ -1,6 +1,4 @@
-import { Board, BoardTaskOrderChanging } from "../types/Board";
-import { createContext } from "react";
-import mockData from "../../MockData";
+import { Board, BoardTaskOrderChanging } from "@/types/board/board";
 
 export const boardIndex = (boardId: string, boardList: Array<Board>): number =>
   boardList.findIndex((board) => board.id == boardId);
@@ -26,8 +24,3 @@ export const replacedTaskOrder = (boardChanging: BoardTaskOrderChanging, destina
 
   return newBoard;
 }
-
-/**
- * @todo: REMOVE this
- */
-export const columnContext = createContext(mockData);

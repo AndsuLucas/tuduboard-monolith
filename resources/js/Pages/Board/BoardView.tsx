@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import ColumnComponent from "@/Components/Column/ColumnComponent";
-import { columnContext } from "@/services/board/board";
 import { Board } from "@/types/board/board";
 import { onDropingColumnTaskTrade } from "@/useCases/board/change-task-column";
+import { columnContext } from '../../types/board/board';
 
 type CommonViewData =  {
   auth: { user: object | null | undefined },
-  errors: {},
-  ziggy: {}
+  errors: object,
+  ziggy: object
 }
 
 type BoardViewData = {
@@ -21,7 +21,6 @@ function BoardView(viewData: BoardViewData): JSX.Element {
 
   const columns = () => {
     return boardState.map((column: Board) =>
-
       <columnContext.Provider value={boardState} key={column.id}>
         <ColumnComponent columnId={column.id} />
       </columnContext.Provider>

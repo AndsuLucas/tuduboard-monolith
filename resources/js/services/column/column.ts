@@ -6,7 +6,7 @@ export const taskById = (taskId: string, column: Board) =>
 
 
 export const taskAt = (task: Task, index: number, column: Board) => {
-    let newColumnState: Board = structuredClone(column);
+    const newColumnState: Board = structuredClone(column);
 
     newColumnState.tasks.splice(index, 0, task);
     newColumnState.tasksOrder.splice(index, 0, task.id)
@@ -15,7 +15,7 @@ export const taskAt = (task: Task, index: number, column: Board) => {
 }
 
 export const removeAt = (index: number, column: Board) => {
-  let newColumnState = structuredClone(column)
+  const newColumnState = structuredClone(column)
   
   newColumnState.tasksOrder
     .splice(index, 1);

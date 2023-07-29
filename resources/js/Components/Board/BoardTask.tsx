@@ -5,7 +5,7 @@ import { slicedNotes } from "@/services/task/task";
 
 function BoardTask(props: TaskProps): JSX.Element {
 
-  let { index, task } = props;
+  const { index, task } = props;
 
   return (
     <Draggable draggableId={task.id} index={index} key={task.id}>
