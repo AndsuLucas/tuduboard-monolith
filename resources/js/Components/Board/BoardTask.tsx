@@ -16,9 +16,6 @@ function BoardTask(props: TaskProps): JSX.Element {
           {...provided.dragHandleProps}
           ref={provided.innerRef}>
           <div style={taskCardStyle}>
-            <aside style={taskTopicStyle} className="taskCardTopic">
-              <span>Topic</span>
-            </aside>
             <header style={taskHeaderStyle} className="taskCadHeader">
               <h1 style={taskNameStyle} className="taskCardName">{task.title}</h1>
               <span style={taskIdStyle} className="taskCardId">{task.id}</span>

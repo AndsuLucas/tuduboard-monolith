@@ -1,6 +1,10 @@
 import { Task } from "../task/task"
+<<<<<<< Updated upstream
 //@todo specific directory for contexts
 import { createContext } from "react"
+=======
+
+>>>>>>> Stashed changes
 export type ColumnProps = {
   columnId: string
 }

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import ColumnComponent from "@/Components/Column/ColumnComponent";
 import { Board } from "@/types/board/board";
 import { onDropingColumnTaskTrade } from "@/useCases/board/change-task-column";
+<<<<<<< Updated upstream
 import { columnContext } from '../../types/board/board';
 
 type CommonViewData =  {
@@ -10,6 +11,10 @@ type CommonViewData =  {
   errors: object,
   ziggy: object
 }
+=======
+import { renderNewWindow } from "@/helpers/redering";
+import { CommonViewData } from '../../types/viewData/common-view-data';
+>>>>>>> Stashed changes
 
 type BoardViewData = {
     currentBoardState: Board[]
@@ -27,6 +32,15 @@ function BoardView(viewData: BoardViewData): JSX.Element {
     );
   }
 
+  const onAddNewTask = () => {
+    renderNewWindow({
+      title: 'Add New Task',
+      uri: '/board/task/create',
+      height: 600,
+      width: 600
+    });
+  }
+
   const taskDroping = (result: DropResult) => {
     const newBoardState = onDropingColumnTaskTrade(result, boardState);
     setBoardState(newBoardState);
@@ -35,7 +49,9 @@ function BoardView(viewData: BoardViewData): JSX.Element {
   return (
     <section className="board" style={boardStyle}>
       <header>
-        <h1>menu board (?)</h1>
+        <nav>
+           <button onClick={onAddNewTask}>Add New Task</button>
+        </nav>
       </header>
       <main className="boardMainStyle" style={boardMainStyle}>
         <DragDropContext onDragEnd={taskDroping}>
