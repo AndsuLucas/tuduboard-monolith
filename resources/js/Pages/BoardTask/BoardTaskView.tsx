@@ -1,30 +1,34 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import ColumnComponent from "@/Components/Column/ColumnComponent";
 import { Board } from "@/types/board/board";
 import { onDropingColumnTaskTrade } from "@/useCases/board/change-task-column";
 import { columnContext } from '../../types/board/board';
+import { renderNewWindow } from "@/helpers/redering";
+import { CommonViewData } from '../../types/viewData/common-view-data';
 
-type CommonViewData =  {
-  auth: { user: object | null | undefined },
-  errors: object,
-  ziggy: object
-}
-
-type BoardViewData = {
+type BoardTaskView = {
     currentBoardState: Board[]
 } & CommonViewData
 
-function BoardView(viewData: BoardViewData): JSX.Element {
-
+function BoardTaskView(viewData: BoardTaskView): JSX.Element {
   const [boardState, setBoardState] = useState(viewData.currentBoardState);
 
   const columns = () => {
     return boardState.map((column: Board) =>
       <columnContext.Provider value={boardState} key={column.id}>
-        <ColumnComponent columnId={column.id} />
+        <ColumnComponent columnId={column.id} key={column.id} />
       </columnContext.Provider>
     );
+  }
+
+  const onAddNewTask = () => {
+    renderNewWindow({
+      title: 'Add New Task',
+      uri: '/board/task/create',
+      height: 600,
+      width: 600
+    });
   }
 
   const taskDroping = (result: DropResult) => {
@@ -35,7 +39,9 @@ function BoardView(viewData: BoardViewData): JSX.Element {
   return (
     <section className="board" style={boardStyle}>
       <header>
-        <h1>menu board (?)</h1>
+        <nav>
+           <button onClick={onAddNewTask}>Add New Task</button>
+        </nav>
       </header>
       <main className="boardMainStyle" style={boardMainStyle}>
         <DragDropContext onDragEnd={taskDroping}>
@@ -58,4 +64,4 @@ const boardMainStyle: React.CSSProperties = {
   justifyContent: "space-evenly"
 }
 
-export default BoardView;
+export default BoardTaskView;

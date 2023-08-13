@@ -1,5 +1,5 @@
-import { Task } from "../../task/types/Task";
-import { Board } from "../../board/types/Board";
+import { Task } from "@/types/task/task";
+import { Board } from "@/types/board/board";
 
 export const taskById = (taskId: string, column: Board) => 
   column.tasks.find((task) => task.id == taskId);

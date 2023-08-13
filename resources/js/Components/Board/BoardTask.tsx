@@ -16,9 +16,6 @@ function BoardTask(props: TaskProps): JSX.Element {
           {...provided.dragHandleProps}
           ref={provided.innerRef}>
           <div style={taskCardStyle}>
-            <aside style={taskTopicStyle} className="taskCardTopic">
-              <span>Topic</span>
-            </aside>
             <header style={taskHeaderStyle} className="taskCadHeader">
               <h1 style={taskNameStyle} className="taskCardName">{task.title}</h1>
               <span style={taskIdStyle} className="taskCardId">{task.id}</span>
@@ -62,16 +59,5 @@ const taskIdStyle: React.CSSProperties = {
 const taskNameStyle: React.CSSProperties = {
   flexGrow: 2,
 }
-
-const taskTopicStyle: React.CSSProperties = {
-  position: "absolute",
-  alignSelf: "end",
-  zIndex: "99999",
-  right: "0%",
-  margin: "6% 0",
-  backgroundColor: "ghostwhite",
-  padding: "0"
-}
-
 
 export default BoardTask
