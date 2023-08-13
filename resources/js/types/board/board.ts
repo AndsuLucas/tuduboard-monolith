@@ -1,10 +1,7 @@
 import { Task } from "../task/task"
-<<<<<<< Updated upstream
 //@todo specific directory for contexts
 import { createContext } from "react"
-=======
 
->>>>>>> Stashed changes
 export type ColumnProps = {
   columnId: string
 }
@@ -13,7 +10,7 @@ export type ColumnProps = {
 export type Board = {
   id: string, // TODO: BETTER TYPE FOR UID
   presentationName: string,
-  tasks: Array<Task>,
+  tasks: Array<Task>, 
   tasksOrder: Array<string>
 }
 

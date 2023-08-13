@@ -31,7 +31,7 @@ function BoardTaskForm(props: BoardTaskFormProps): JSX.Element {
     }
 
     const key = target.id;
-    console.log(target);
+
     const value = key == 'repeat' ?
       target.checked ? 1 : 0
       : target.value;
@@ -54,7 +54,10 @@ function BoardTaskForm(props: BoardTaskFormProps): JSX.Element {
       <select id="board" onChange={handleChange} required>
         {
           props.columns.map(
-            (column) => <option key={column.id} value={column.id}>{column.presentationName}</option>
+            (column) => 
+              <option key={column.id} value={column.id}>
+                {column.presentationName}
+              </option>
           )
         }
       </select>
@@ -62,7 +65,6 @@ function BoardTaskForm(props: BoardTaskFormProps): JSX.Element {
     </form>
   );
 }
-
 
 const createBoardTaskFormStyle: React.CSSProperties = {
   display: 'flex',

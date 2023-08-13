@@ -60,15 +60,4 @@ const taskNameStyle: React.CSSProperties = {
   flexGrow: 2,
 }
 
-const taskTopicStyle: React.CSSProperties = {
-  position: "absolute",
-  alignSelf: "end",
-  zIndex: "99999",
-  right: "0%",
-  margin: "6% 0",
-  backgroundColor: "ghostwhite",
-  padding: "0"
-}
-
-
 export default BoardTask

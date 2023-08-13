@@ -15,7 +15,58 @@ class BoardTaskController extends Controller
      */
     public function index()
     {
-        //
+       return Inertia::render('BoardTask/BoardTaskView', [
+        'currentBoardState' => [
+            
+                [
+                    'id' => 'to-do',
+                    'presentationName' => 'To-do',
+                    'tasks' => [
+                        [
+                            'id' => '1',
+                            'title' => 'task1',
+                            'notes' => 'notes',
+                            'repeat' => true,
+                            'board' => 'to-do'
+                        ],
+                        [
+                            'id' => '2',
+                            'title' => 'task2',
+                            'notes' => 'notes',
+                            'repeat' => true,
+                            'board' => 'to-do'
+                        ],
+                        [
+                            'id' => '3',
+                            'title' => 'task2',
+                            'notes' => 'notes',
+                            'repeat' => true,
+                            'board' => 'to-do'
+                        ],
+                        [
+                            'id' => '4',
+                            'title' => 'task4',
+                            'notes' => 'notes',
+                            'repeat' => true,
+                            'board' => 'to-do'
+                        ],
+                    ],
+                    'tasksOrder' => ['3', '2', '1', '4']
+                ],
+                [
+                    'id' => 'doing',
+                    'presentationName' => 'Doing',
+                    'tasks' => [],
+                    'tasksOrder' => []
+                ],
+                [
+                    'id' => 'closed',
+                    'presentationName' => 'Closed',
+                    'tasks' => [],
+                    'tasksOrder' => []
+                ]
+        ]
+       ]);
     }
 
     /**

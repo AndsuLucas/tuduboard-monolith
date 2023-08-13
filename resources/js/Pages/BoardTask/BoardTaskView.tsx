@@ -3,31 +3,21 @@ import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import ColumnComponent from "@/Components/Column/ColumnComponent";
 import { Board } from "@/types/board/board";
 import { onDropingColumnTaskTrade } from "@/useCases/board/change-task-column";
-<<<<<<< Updated upstream
 import { columnContext } from '../../types/board/board';
-
-type CommonViewData =  {
-  auth: { user: object | null | undefined },
-  errors: object,
-  ziggy: object
-}
-=======
 import { renderNewWindow } from "@/helpers/redering";
 import { CommonViewData } from '../../types/viewData/common-view-data';
->>>>>>> Stashed changes
 
-type BoardViewData = {
+type BoardTaskView = {
     currentBoardState: Board[]
 } & CommonViewData
 
-function BoardView(viewData: BoardViewData): JSX.Element {
-
+function BoardTaskView(viewData: BoardTaskView): JSX.Element {
   const [boardState, setBoardState] = useState(viewData.currentBoardState);
 
   const columns = () => {
     return boardState.map((column: Board) =>
       <columnContext.Provider value={boardState} key={column.id}>
-        <ColumnComponent columnId={column.id} />
+        <ColumnComponent columnId={column.id} key={column.id} />
       </columnContext.Provider>
     );
   }
@@ -74,4 +64,4 @@ const boardMainStyle: React.CSSProperties = {
   justifyContent: "space-evenly"
 }
 
-export default BoardView;
+export default BoardTaskView;

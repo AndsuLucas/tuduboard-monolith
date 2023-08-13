@@ -6,10 +6,10 @@ type NewWindowParams = {
 }
 
 export const renderNewWindow = (params: NewWindowParams) => {
-  var top = window.screen.height - params.height;
+  let top = window.screen.height - params.height;
   top = top > 0 ? top / 2 : 0;
 
-  var left = window.screen.width - params.width;
+  let left = window.screen.width - params.width;
   left = left > 0 ? left / 2 : 0;
 
   const newWindow = window.open(

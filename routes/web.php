@@ -16,15 +16,6 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    $mockPath = storage_path() . '/app/public/mock/mock.json';
-    $mockContent = file_get_contents($mockPath);
-    $mockContent = json_decode($mockContent, true, flags: JSON_THROW_ON_ERROR);
-
-    return Inertia::render('Board/BoardView', [
-        'currentBoardState' => $mockContent ?? []
-    ]);
-});
 
 Route::resource('/board/task', BoardTaskController::class);
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { TaskProps } from "../types/Task";
-import { slicedNotes } from "../services/Task";
+import { TaskProps } from "@/types/task/task";
+import { slicedNotes } from "@/services/task/task";
 
 function TaskComponent(props: TaskProps): JSX.Element {
 

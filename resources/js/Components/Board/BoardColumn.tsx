@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import TaskComponent from "../Task/TaskComponent";
 import { StrictModeDroppable } from "../../StrictModeDroppable";
-import { Board, ColumnProps } from "@/types/board/board";
-import { columnContext } from "@/services/board/board";
+import { Board, ColumnProps, columnContext } from "@/types/board/board";
 import { Task } from "@/types/task/task";
 
 export default function BoardColumn(props: ColumnProps): JSX.Element {
