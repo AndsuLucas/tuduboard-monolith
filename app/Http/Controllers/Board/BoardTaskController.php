@@ -16,6 +16,8 @@ class BoardTaskController extends Controller
     public function index()
     {
        return Inertia::render('BoardTask/BoardTaskView', [
+        'id' => '1',
+        //'dayOfWeek' => 2,
         'currentBoardState' => [
             
                 [
